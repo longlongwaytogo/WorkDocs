@@ -31,4 +31,5 @@
 将fbx在3dmax 打开，发现树木模型上的材质设置中，透明属性有如下设置：   
  ![](res/fbx_noAlpha.PNG)   
 将单通道输出的RGB强度改为Alpha,则树木的融合效果正常:   
-![](res/fbx_alpha.png)
+![](res/fbx_alpha.jpg)
+
