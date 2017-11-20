@@ -26,10 +26,27 @@
  以上三点需要根据需要来设置。
 ![](res/fbx_2.1.png)      
 
-###3.fbx导入后，树木融合错误      
+###4.fbx导入后，树木融合错误      
   
 将fbx在3dmax 打开，发现树木模型上的材质设置中，透明属性有如下设置：   
  ![](res/fbx_noAlpha.PNG)   
-将单通道输出的RGB强度改为Alpha,则树木的融合效果正常:   
+将单通道输出的RGB强度改为Alpha,则在3dmax中树木的融合效果正常:   
 ![](res/fbx_alpha.jpg)
 
+但导出fbx后，再导入UE4,树木融合依然存在问题：  
+**原因：**    
+   使用3dmax建模后，场景修设置了材质Mono Channel Output参数中的alpha属性；将max场景保存为fbx文件，但fbx中并不能存储Mono Channel OutPut 的参数设置，导致从fbx导入到UE4中，材质的alpha 混合出现错误。
+导入到UE4中的错误材质：alpha通道识别错误
+![](res/fbx_err.1.jpg)    
+在UE4中改成下图，材质就正确了：  
+![](res/fbx_err.2.jpg)   
+**解决：** 
+
+对于这个问题，可以通过其他方式来规避。UE4中，可以将材质纹理和alpha通道保存为两张图片，建议可以在制作Max场景时，单独使用一张图保存Alpha信息。如下图，导出alpha通道为单独tga文件。  
+![](res/fbx_err.3.jpg)  
+正确的融合材质蓝图：    
+![](res/fbx_err.4.jpg)  
+3dmax 中材质设置如下图：  
+![](res/fbx_err.5.jpg)  
+**导入UE4中效果：**  
+![](res/fbx_err.6.jpg)  
