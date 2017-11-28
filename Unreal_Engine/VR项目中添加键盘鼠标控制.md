@@ -33,4 +33,10 @@ Character，并选中：
 - 鼠标交互事件，VR模式下可以不使用，但非VR模式下，需要自定义PlayerController,
   来设置Mouse的一些属性，用于鼠标事件。
 
+##4. VR 和 键盘鼠标操作的问题
+完成前三步，经过测试，发现手柄有时会错位，总是莫名奇妙的向左边、或右边偏移了一些角度，反复测试，发现是由于鼠标Turn事件导致。
+所以，以上步骤需要修正。
+对于步骤1，使用蓝图来实现,同时mouse对相机旋转的控制也使用蓝图完成：  
+![](res/keyboard_mouse_8.png) 
+添加Add Floating Pawn Movement 节点，设置Use Controller Rotation yaw :true，设置Use Controller Rotation pitch :true
 
