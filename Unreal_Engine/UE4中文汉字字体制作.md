@@ -11,6 +11,13 @@
 ![](res/chinese_font_5.png)   
 6. 在Module中找到TextRender对象，放置到场景中，修改TextRender的material、Font属性为以上创建资源，并在Text属性输入：勇敢无畏的勇士。 
 
-![](res/chinese_font_6.png) 
-7. 最终效果如图：  
-![](res/chinese_font_7.png) 
+ ![](res/chinese_font_6.png) 
+7. 最终效果如图：      
+ ![](res/chinese_font_7.png) 
+
+8. 对于以上字体材质，也可以使用其他连接方式：
+
+  - 在生成font时，不勾选Alpha Only选项。
+  - 连接字体材质时，使用font作为basecolor,font的alpha最为opacity 作为mask。    
+ 
+ ![](res/font_2.png)
