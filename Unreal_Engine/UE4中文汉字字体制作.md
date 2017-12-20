@@ -21,3 +21,7 @@
   - 连接字体材质时，使用font作为basecolor,font的alpha最为opacity 作为mask。    
  
  ![](res/font_2.png)
+
+9. Alpha only选项的作用就是表示 Font Sample Parameter 所有的输出引脚，都输出Alpha通道，原注释是这样解释：
+		if true then forces PF_G8 and only maintains Alpha value and discards color
+		如果真，对于PF_G8格式,只有保持Alpha值且丢弃颜色值
