@@ -1,0 +1,94 @@
+sys_enable_budgetmonitoring 开启资源监视
+sys_spec_full 1 2 3 4  渲染质量控制
+r_ssdo 全屏定向遮罩
+r_profile 性能测试开关
+r_profile_deep 深度测试
+r_minimizeLatency = 1 最小延迟
+r_displayInfo  显示信息
+r_vsync = 0 关闭垂直同步
+
+r_MotionBlur = 0   关闭运动模糊
+ 
+r_ssdoHalfRes = 3
+  ssdo 参数
+r_Refraction = 0
+  r_CBufferUseNativeDepth = 0
+
+r_AntialiasingMode = 3
+r_Driver 切换dx11 dx12 GL渲染
+r_Stats 显示状态信息
+sys_spec_Shadows  设置阴影显示级别
+
+
+p_draw_helps 1  调试物理生成网格
+
+模型优化
+ 网格优化，部分模型网格过密，mesh大小过大（45M）
+
+1、物理优化：有些树木不需要物理，有些建筑的物理也不需要那么细致
+1
+
+hmd_social_screen 头盔输出模式显示设置
+
+
+ 
+
+概述
+虚拟现实是每个人都兴奋的新沉浸式媒体。CRYENGINE V包括探索这个新空间所需的一切，并创建自己的VR游戏和体验。VR需要一个强大的引擎，具有高帧率的高品质渲染。CRYENGINE V方便地有一个新的优化渲染器，完成任务。当然，您需要一台具有现代GPU的快速计算机以及VR头戴式显示器，例如Oculus Rift，HTC Vive或Razer，然后才能启动。好消息是，CRYENGINE V包括对最新的VR HMD以及输入控制器的集成支持。
+实施
+使用VR与CRYENGINE
+在运行时启用虚拟现实
+通用VR控制台命令
+支持的平台
+
+实施
+
+从CRYENGINE 5.3起，虚拟现实供应商的实现位于各个插件中。注意：这是一个测试版功能。这样做是为了标准化VR设备行为，并允许VR设备从引擎中脱离，当它们不需要项目时。一旦发动机加载，每个VR设备模块将在检测到设备后自动向Engine的VR管理员注册。
+使用VR与CRYENGINE
+
+在CRYENGINE中启用VR的过程被设计为尽可能简单。从CRYENGINE 5.3开始，通过对所有支持的实现需要五个通用步骤进一步简化：
+将设备连接到计算机
+确保供应商运行时/应用程序将您的耳机识别为可以使用
+使用引擎为您的供应商安装CRYENGINE VR插件
+将'sys_vr_support = 1'添加到您的system.cfg或user.cfg文件
+启动引擎
+图标
+沙盒编辑器尚未完全支持虚拟现实，我们希望在将来的更新中对多个视口的新支持进行更正。
+ 
+一旦启动，引擎应该呈现给您的头戴式设备。
+在运行时启用虚拟现实
+
+在启动启动器之后也可以激活VR，这可以通过在主菜单中简单地在控制台中运行“sys_vr_support = 1”来完成。一个可能的用例是通过游戏的选项菜单启用VR的功能。
+图标
+编辑器当前不支持虚拟现实运行时切换，只在启动器中。
+通用VR控制台命令
+
+有关可用于所有VR设备的控制台命令的列表，请参见下表。
+名称
+类型
+默认
+描述
+hmd_info	命令	-	显示HMD相关资料信息
+hmd_recenter_pose	命令	-	重新定位HMD的传感器方向
+hmd_device	变量	 	强制使用特定的VR插件，否则首先可用。
+可用选项：
+CryOculusVR - 强制使用Oculus插件
+CryOpenVR - 强制使用OpenVR插件
+CryOSVR - 强制使用OSVR 插件
+
+注意：如果未指定字符串，它将默认为可以找到的第一个设备。
+hmd_social_screen	变量	0	选择社交屏幕模式（scrSelects）：
+    1 - 关闭
+    0 - 扭曲的双重图像
+    1 - 无失真的双重图像
+    2 - 未丢失的左眼
+    3 - 无失真的右眼
+hmd_social_screen_keep_aspect	变量	0	是否在社交屏幕上显示图像时保持高宽比。
+hmd_reference_point	变量	1	HMD中心参考点。
+    0 - 相机（演员的头）
+    1 - 演员的脚
+
+HTC Vive将以完全达到90 FPS或以上的速度运行90 FPS。
+图标
+如果您的游戏在任何时候运行甚至低于90 FPS，它将暂时默认为45 FPS，直到再次达到90 FPS。
+请记住，不到90 FPS的东西通常不被认为是VR的愉快体验。
